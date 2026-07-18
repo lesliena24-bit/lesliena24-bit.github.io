@@ -21,5 +21,26 @@
   <p>Esta web sirve para practicar Google Tag Manager, Meta Pixel y TikTok Pixel.</p>
   <button id="btn-lead">Quiero más información</button>
   <button id="btn-compra">Simular compra</button>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    document.getElementById('btn-lead').addEventListener('click', function() {
+      dataLayer.push({
+        'event': 'generate_lead',
+        'lead_type': 'formulario_info'
+      });
+      console.log('Evento enviado: generate_lead');
+    });
+
+    document.getElementById('btn-compra').addEventListener('click', function() {
+      dataLayer.push({
+        'event': 'purchase',
+        'value': 99.90,
+        'currency': 'PEN'
+      });
+      console.log('Evento enviado: purchase');
+    });
+  </script>
 </body>
 </html>
